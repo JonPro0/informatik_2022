@@ -71,33 +71,10 @@ public class Rekursion1 {
         }
     }
 
-  public static void tvHR(int a, int b){
-    if (a == 1){
-      System.out.print("Die Zahl ist: " + b);
-    } else {
-      b = b * 2 + 1;
-      tvHR(a-1,b);
-    }
-  }
 
-  public static void showMoves(int anzahl) {
-        int rest = anzahl % 2;
-        if(rest == 0) {
-            for (int j = 0; j < Math.pow(2, anzahl) - 1; j++) {
-                System.out.println();
-            }
-        }
-    }
-
-public static void tvHR(int a){
-    tvHR(a, 1);
-  }
 
     public static void main(String[] args) {
-        //System.out.println(addiereInterativ(4,7,0));
-        for(int i = 1; i <= 10; i++){    
-      System.out.print("\n" + i + ": ");
-      tvHR(i);
-    }
+        System.out.println(addiereInterativ(4,7,0));
+
 }
 }
