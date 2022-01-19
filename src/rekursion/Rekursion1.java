@@ -2,6 +2,7 @@ package rekursion;
 
 public class Rekursion1 {
     private static int  i = 1;
+    private int position = 1;
     public static boolean b = true;
     public static void rekursion1(){
         rekursion1();
@@ -78,6 +79,15 @@ public class Rekursion1 {
       tvHR(a-1,b);
     }
   }
+
+  public static void showMoves(int anzahl) {
+        int rest = anzahl % 2;
+        if(rest == 0) {
+            for (int j = 0; j < Math.pow(2, anzahl) - 1; j++) {
+                System.out.println();
+            }
+        }
+    }
 
 public static void tvHR(int a){
     tvHR(a, 1);
