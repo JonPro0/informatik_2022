@@ -11,6 +11,14 @@ public class TowerOfHanoi {
         }
     }
 
+    public static int towerOfHanoiIterativ(int anzahl){
+        int ergebnis = 0;
+        for (int i = 0; i < anzahl; i++) {
+            ergebnis = ergebnis * 2 + 1;
+        }
+        return ergebnis;
+    }
+
     public static void towerOfHanoiRecursive(int a){
         towerOfHanoiRecursive(a, 1);
     }
@@ -53,11 +61,43 @@ public class TowerOfHanoi {
         }
     }
 
+    public static void tuerme(int anzahl, String start, String ziel, String zwischen) {
+        if (anzahl > 1) {
+            tuerme(anzahl-1, start, zwischen, ziel);
+        }
+
+        System.out.println("Verschiebe Scheibe von " + start + " nach " + ziel);
+
+        if (anzahl > 1) {
+            tuerme(anzahl-1, zwischen, ziel, start);
+        }
+    }
+
+    private static int bewegungyay = 0;
+    public static void bewegungenRekursiv(int anzahl) {
+        if (anzahl > 1) {
+            bewegungenRekursiv(anzahl-1);
+        }
+
+        bewegungyay = bewegungyay + 1;
+
+        if (anzahl > 1) {
+            bewegungenRekursiv(anzahl-1);
+        }
+    }
+
     public static void main(String[] args) {
         //countMoves(5);
         //countMovesFromAToB(1, 10);
-        int showMovesNumber = 3;
-        showMoves(showMovesNumber, 1, (int) (Math.pow(2, showMovesNumber - 1) - 1));
+        //int showMovesNumber = 3;
+        //showMoves(showMovesNumber, 1, (int) (Math.pow(2, showMovesNumber - 1) - 1));
+        //System.out.println(towerOfHanoiIterativ(4));
+        int scheiben = 7;
+        for (int i = 1; i < scheiben; i++) {
+            bewegungyay = 0;
+            bewegungenRekursiv(i);
+            System.out.println(bewegungyay);
+        }
     }
 
 }
