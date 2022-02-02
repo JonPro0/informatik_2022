@@ -32,11 +32,28 @@ public class RekursionRueckgabewerte {
         return (n < 2) ? 1 : kaninchensex(n-1) + kaninchensex(n-2);
     }
 
+    public static void fibonacci(int n){
+        int fibo1 = 0;
+        int fibo2 = 1;
+        n = n- 2;
+        int res = 1;
+        System.out.println(res);
+        for (int i = 0; i < n; i++) {
+            res = fibo1+fibo2;
+            System.out.println(res);
+            fibo1 = fibo2;
+            fibo2 = res;
+        }
+
+        System.out.println((fibo1 + fibo2));
+
+    }
+
 
 
     public static void main(String[] args) {
         //System.out.println(fakultaetRekursiv(0));
-        long i = System.currentTimeMillis();
+        /*long i = System.currentTimeMillis();
         System.out.println(fakultaet1(15));
         long ii = System.currentTimeMillis();
         System.out.println("Zeit: " + (ii - i));
@@ -44,6 +61,10 @@ public class RekursionRueckgabewerte {
         long a = System.currentTimeMillis();
         System.out.println(fakultaet2(15));
         double aa = System.currentTimeMillis();
-        System.out.println("Zeit: " + (aa - a));
+        System.out.println("Zeit: " + (aa - a));*/
+
+        fibonacci(10);
+
+
     }
 }
