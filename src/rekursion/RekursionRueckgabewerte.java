@@ -2,7 +2,7 @@ package rekursion;
 
 
 public class RekursionRueckgabewerte {
-    private static int ergebnisJonas = 1;
+   private static long[] memos = new long[1000];
 
 
     public static int fakultaet1(int zahl){
@@ -26,9 +26,9 @@ public class RekursionRueckgabewerte {
         return zahl * fakultaetRekursiv(zahl-1);
     }
 
-    //TODO: Formel: f(n) = f(n-1) + f(n-2)
+    // Formel: f(n) = f(n-1) + f(n-2)
 
-    public static int kaninchensex(int n){
+    public static long kaninchensex(int n){
         return (n < 2) ? 1 : kaninchensex(n-1) + kaninchensex(n-2);
     }
 
@@ -49,7 +49,16 @@ public class RekursionRueckgabewerte {
 
     }
 
-
+    private static long fiboarray(int n) {
+        memos[0] = 1;
+        memos[1] = 1;
+        int gesamt = 0;
+        if(n < 2){
+            return memos[0];
+        } else {
+            return memos[n] = fiboarray(n-1) + fiboarray(n-2);
+        }
+    }
 
     public static void main(String[] args) {
         //System.out.println(fakultaetRekursiv(0));
@@ -63,7 +72,21 @@ public class RekursionRueckgabewerte {
         double aa = System.currentTimeMillis();
         System.out.println("Zeit: " + (aa - a));*/
 
-        fibonacci(10);
+       // fibonacci(10);
+        /*for (int i = 50; i <= 50; i++) {
+            long start = System.currentTimeMillis();
+            long result = kaninchensex(i);
+            long ende = System.currentTimeMillis() - start;
+            System.out.printf("f(%1d) = %15d; Dauer: %.2f%n", i, result, ende / 1000.0);
+        }*/
+        for (int i = 50; i < 51; i++) {
+            long pleasebefaster1 = System.currentTimeMillis();
+            fibonacci(i);
+            long pleasebefaster2 = System.currentTimeMillis() - pleasebefaster1;
+            System.out.println("Dauer:" + pleasebefaster2 / 1000.0);
+        }
+
+        System.out.println(fiboarray(50));
 
 
     }
