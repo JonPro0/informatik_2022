@@ -32,21 +32,23 @@ public class RekursionRueckgabewerte {
         return (n < 2) ? 1 : kaninchensex(n-1) + kaninchensex(n-2);
     }
 
-    public static void fibonacci(int n){
-        int fibo1 = 0;
-        int fibo2 = 1;
-        n = n- 2;
-        int res = 1;
-        System.out.println(res);
+    public static long fibonacci(int n){
+        long fibo1 = 0;
+        long fibo2 = 1;
+
+
         for (int i = 0; i < n; i++) {
-            res = fibo1+fibo2;
-            System.out.println(res);
-            fibo1 = fibo2;
-            fibo2 = res;
+            long res = fibo2;
+            fibo2 += fibo1;
+            fibo1 = res;
         }
+        return fibo2;
 
-        System.out.println((fibo1 + fibo2));
+    }
 
+    private static long fiboIterativ(int n){
+        long fib = 1;
+        return 1;
     }
 
     private static long fiboarray(int n) {
@@ -79,15 +81,24 @@ public class RekursionRueckgabewerte {
             long ende = System.currentTimeMillis() - start;
             System.out.printf("f(%1d) = %15d; Dauer: %.2f%n", i, result, ende / 1000.0);
         }*/
-        for (int i = 50; i < 51; i++) {
+        /*for (int i = 50; i < 51; i++) {
             long pleasebefaster1 = System.currentTimeMillis();
             fibonacci(i);
             long pleasebefaster2 = System.currentTimeMillis() - pleasebefaster1;
             System.out.println("Dauer:" + pleasebefaster2 / 1000.0);
-        }
+        }*/
+        long start = System.nanoTime();
+        long n = fibonacci(40);
+        long ende = System.nanoTime() - start;
+        System.out.println(n);
+        System.out.println(ende);
 
-        System.out.println(fiboarray(50));
-
+        Fibonacci fib  = new Fibonacci();
+        long start2 = System.nanoTime();
+        System.out.println(fib.fibonacciMemoized(100));
+        long ende2 = System.nanoTime();
+        System.out.println(ende2 - start2);
+//https://stackoverflow.com/questions/38534460/how-to-convert-a-biginteger-to-a-scientific-notation-string-and-back
 
     }
 }
