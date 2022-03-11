@@ -13,19 +13,19 @@ public class BackTracking {
     //mroy mryo
     //myor myro
     //mory moyr
-    private static void kombis(String text){
+    public static void kombis(String text){
         kombis("", text);
     }
     private static void kombis(String schon, String noch){
         if (noch.length() <= 1){
-            schon = noch;
+            schon += noch;
             System.out.println(schon);
         } else {
             for (int i = 0; i < noch.length(); i++) {
                 char c = noch.charAt(i);
-                String neuesSchon = schon + c;
+
                 String neuesNoch = noch.substring(0, i) + noch.substring(i+1);
-                kombis(neuesSchon, neuesNoch);
+                kombis(schon + c, neuesNoch);
             }
 
         }
