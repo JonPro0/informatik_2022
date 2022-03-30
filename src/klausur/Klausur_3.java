@@ -29,6 +29,10 @@ public class Klausur_3 {
         return _min(a, 0, a.length - 1);
     }
 
+    private static int min(int[] arr, int left, int right){
+        return -1;
+    }
+
     public static void main(String[] args) {
         System.out.println(_min(array));
     }

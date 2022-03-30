@@ -25,8 +25,21 @@ public class Klausur_3_complete {
     }
 
     public static boolean number4(int gesucht){
-        int[] array = {5, 1, 3, 7, 9, 6, 9};
-        return number4(array, gesucht, 0, array.length - 1);
+        int[] array = {105, 1, 3, 7, 9, 6, 9};
+        return number4_2(array, gesucht, 0, array.length - 1);
+    }
+
+    public static boolean number4_2(int[] array, int gesucht, int l, int r){
+        if (l>r){
+            return array[l] == gesucht;
+        }
+
+        int mitte = (l + r) / 2;
+        if (array[mitte] == gesucht) return true;
+        boolean check = number4_2(array, gesucht, l + 1, mitte);
+        boolean check2 = number4_2(array, gesucht, mitte, r - 1);
+        if (check || check2) return true;
+        return false;
     }
 
     /*public static boolean number4really(int[] array, int gesucht, int l, int r){
@@ -64,6 +77,6 @@ public class Klausur_3_complete {
 
     public static void main(String[] args) {
         //number3(16);
-        System.out.println(number5());
+        System.out.println(number4(3));
     }
 }
