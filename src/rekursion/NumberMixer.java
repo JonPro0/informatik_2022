@@ -30,8 +30,6 @@ public class NumberMixer {
 
 
 
-
-
     public static void main(String[] args) {
         kombisNumber("792");
     }
