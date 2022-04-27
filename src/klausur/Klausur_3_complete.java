@@ -38,16 +38,9 @@ public class Klausur_3_complete {
         if (array[mitte] == gesucht) return true;
         boolean check = number4_2(array, gesucht, l + 1, mitte);
         boolean check2 = number4_2(array, gesucht, mitte, r - 1);
-        if (check || check2) return true;
-        return false;
+        return check || check2;
     }
 
-    /*public static boolean number4really(int[] array, int gesucht, int l, int r){
-        if(array[l] == gesucht){
-            return true;
-        }
-        return number4really(array, gesucht, l, (l + r) / 2);
-    }*/
 
     public static int number5(){
         int[][] array = {
