@@ -1,26 +1,26 @@
 package adt.queue;
 
 public class Item<T> {
-    T data;
-    Item<T> next;
-    public Item(T data){
-        this.data = data;
+    private T data;
+    private Item next;
+
+    public Item(T data) {
+        setData(data);
     }
 
     public T getData() {
         return data;
     }
 
-    public void setData(T data){
+    public void setData(T data) {
         this.data = data;
     }
 
-    public Item getNext(){
+    public Item getNext() {
         return next;
     }
 
-    public void setNext(Item<T> next){
+    public void setNext(Item next) {
         this.next = next;
     }
-
 }
