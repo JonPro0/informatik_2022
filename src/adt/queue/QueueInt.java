@@ -1,18 +1,18 @@
 package adt.queue;
 
-public class Queue<T> {
-    Item<T> first;
+public class QueueInt {
+    ItemInt first;
 
-    public Queue() {
+    public QueueInt() {
         first = null;
     }
 
-    public void add(T data){
-        Item<T> tmp = new Item<T>(data);
+    public void add(int data){
+        ItemInt tmp = new ItemInt(data);
         if (first == null){
             first = tmp;
         } else {
-            Item<T> runner = first;
+            ItemInt runner = first;
             while (runner.getNext() != null){
                 runner = runner.getNext();
             }
@@ -23,7 +23,7 @@ public class Queue<T> {
     public String print(){
         StringBuilder output = new StringBuilder();
         //1. Wir nehmen eine Variable runner und setzen sie auf first
-        Item runner = first;
+        ItemInt runner = first;
 
         //2. Solange das Element runner einen Nachfolger hat
         while(runner != null) {
@@ -41,7 +41,7 @@ public class Queue<T> {
         return first == null;
     }
 
-    public T first()  {
+    public int first()  {
         if (isEmpty()){
             throw new RuntimeException("Schlange ist leer und es kann nicht drauf zugegriffen werden!");
         }
@@ -53,17 +53,17 @@ public class Queue<T> {
         first = null;
     }
 
-    public T dequeue(){
+    public int dequeue(){
         if (isEmpty()) {
             throw new RuntimeException("Queue ist leer!");
         }
-        T data = first.getData();
+        int data = first.getData();
         first = first.getNext();
         return data;
     }
 
     public int getSize() {
-        Item runner = first;
+        ItemInt runner = first;
         int anzahl = 0;
 
         //1. Solange das Element runner einen Nachfolger hat
@@ -77,4 +77,26 @@ public class Queue<T> {
 
 }
 
+class ItemInt {
+    int data;
+    ItemInt next;
+    public ItemInt(int data){
+        this.data = data;
+    }
 
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data){
+        this.data = data;
+    }
+
+    public ItemInt getNext(){
+        return next;
+    }
+
+    public void setNext(ItemInt next){
+        this.next = next;
+    }
+}

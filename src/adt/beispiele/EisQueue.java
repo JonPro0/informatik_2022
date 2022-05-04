@@ -1,18 +1,18 @@
-package adt.queue;
+package adt.beispiele;
 
-public class Queue<T> {
-    Item<T> first;
+public class EisQueue {
+    Item first;
 
-    public Queue() {
+    public EisQueue() {
         first = null;
     }
 
-    public void add(T data){
-        Item<T> tmp = new Item<T>(data);
+    public void add(Kunde data){
+        Item tmp = new Item(data);
         if (first == null){
             first = tmp;
         } else {
-            Item<T> runner = first;
+            Item runner = first;
             while (runner.getNext() != null){
                 runner = runner.getNext();
             }
@@ -41,7 +41,7 @@ public class Queue<T> {
         return first == null;
     }
 
-    public T first()  {
+    public Kunde first()  {
         if (isEmpty()){
             throw new RuntimeException("Schlange ist leer und es kann nicht drauf zugegriffen werden!");
         }
@@ -53,11 +53,11 @@ public class Queue<T> {
         first = null;
     }
 
-    public T dequeue(){
+    public Kunde dequeue(){
         if (isEmpty()) {
             throw new RuntimeException("Queue ist leer!");
         }
-        T data = first.getData();
+        Kunde data = first.getData();
         first = first.getNext();
         return data;
     }
@@ -77,4 +77,27 @@ public class Queue<T> {
 
 }
 
+class Item {
+    private Kunde data;
+    private Item next;
 
+    public Item(Kunde data) {
+        this.data = data;
+    }
+
+    public Kunde getData() {
+        return data;
+    }
+
+    public void setData(Kunde data) {
+        this.data = data;
+    }
+
+    public Item getNext() {
+        return next;
+    }
+
+    public void setNext(Item next) {
+        this.next = next;
+    }
+}
