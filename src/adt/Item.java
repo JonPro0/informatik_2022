@@ -1,4 +1,4 @@
-package adt.queue;
+package adt;
 
 public class Item<T> {
     private T data;

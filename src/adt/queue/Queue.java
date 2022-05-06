@@ -1,5 +1,7 @@
 package adt.queue;
 
+import adt.Item;
+
 public class Queue<T> {
     Item<T> first;
 
@@ -9,7 +11,7 @@ public class Queue<T> {
 
     // add(Element e) => Hängt ein Element hinten an die Schlange an
     public void enQueue(T data) {
-        Item<T> tmp = new Item<T>(data);
+        Item<T> tmp = new Item<>(data);
 
         if (first == null) {
             first = tmp;

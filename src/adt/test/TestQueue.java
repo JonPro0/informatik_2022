@@ -1,9 +1,8 @@
 package adt.test;
 
 import adt.beispiele.Kunde;
-import adt.queue.Item;
+import adt.Item;
 import adt.queue.Queue;
-import adt.queue.QueueInt;
 
 public class TestQueue {
     public static void testItem() {
