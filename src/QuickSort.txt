@@ -1,0 +1,31 @@
+Dies hier ist eine Erklärung für eine QuickSortVersion
+
+QuickSort1: https://github.com/kuehnert/ITmitSchmiss-QuicksortDemo/releases/tag/v1.1.1
+
+Kommen wir nun zur Beschreibung des QuickSorts Verfahrens.
+
+QuickSort1 ist die klassiche QuickSort Methode, die von Herr Kühnert auch in seinem YT-Video gezeigt wird
+
+Zunächst wird die Methode partitionieren aufgerufen. In dieser Methode wird dann das sogeannte PivotElement und PivotIndex erstellt,
+indem man mit den zwei anderen Variablen l und r die Mitte des Arrays bestimmt.
+-> Beispiel:
+   array -> [3, 1, 4, 2, 5]
+    -> left ist 0, right ist array.length -1 -> 5 - 1 = 4
+    -> left + right = 4, 4 / 2 = 2
+    -> PivotIndex ist somit 2, PivotElement array[2]
+
+Der nun bechriebene Vorgang wird solange gemacht, wie l kleiner oder gleich r ist.
+Nun wird geschaut, ob dass Element an der Stelle array[l] (array[0]) größer ist als das Pivot Element, was in diesem Beispiel nicht der Fall ist.
+Somit wird l um einen erhöht und ist jetzt 1; jetzt wird wieder überprüft, ob das Element an der Stelle array[l] (0) größer ist als das PivotElement.
+Da dies hier wieder nicht der Fall ist, wird l wieder um eins erhöht, da l jetzt den gleichen Index beschreibt wie der PivotIndex (2) , wird nun das
+Pivot Element mit dem Element von array[r] (4) sohingegen verglichen, um zu schauen ob es größer ist.
+Dadurch das dies nicht der Fall ist wird r um eins verringert und ist jetzt 3 und es wird wieder verglichen, ob das PivotElement größer als
+das Element an de Stelle array[r] ist.
+Dies ist jetzt der Fall und somit wird das PivotElement mit dem Element von array[r] getauscht.
+Nach diesem Schritt werden l und r um einen erhöht ode rhalt verringert, da r jetzt aber kleiner als l ist, ist das partitionieren
+des großen Arrays abgeschlossen, wodurch wir nun zwei SUbarrays erhalten, einaml von der Stelle 0 bis PivotIndex und einmal von PivotIndex + 1
+bis zum Ende des Arrays.
+-> Ab jetzt wird das ganze per Rekursion wieder erneut mit den Subarrarrays aufgerufe, bis am Ende alle Subarrays in der richtigen Reihenfolge
+sind und somit das große daurch sortiert ist.
+
+array[1, 2, 3, 4, 5]
