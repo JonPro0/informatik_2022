@@ -3,11 +3,11 @@ package rekursion;
 import java.util.Arrays;
 
 public class QuickSort {
-    private static void quickSort(int[] a, int l, int r) {
-        if (l < r) {
-            int pivot = partition(a, l, r);
-            quickSort(a, l, pivot - 1);
-            quickSort(a, pivot + 1, r);
+    private static void quickSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int pivot = partition(arr, left, right);
+            quickSort(arr, left, pivot - 1);
+            quickSort(arr, pivot + 1, right);
         }
     }
 

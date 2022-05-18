@@ -10,6 +10,7 @@ public class Stack<T> {
     }
 
     public void push(T data){
+
         //neues Element mit data
         Item<T> tmp = new Item<>(data);
         //Setze Nachfolger von tmp auf ehem. top;
@@ -21,6 +22,10 @@ public class Stack<T> {
 
     public T pop(){
         top = top.getNext();
+        return top.getData();
+    }
+
+    public T peek(){
         return top.getData();
     }
 }
