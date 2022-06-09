@@ -3,7 +3,7 @@ package adt.queue;
 import adt.Item;
 
 public class Queue<T> {
-    Item<T> first;
+    public Item<T> first;
 
     public Queue() {
         first = null;
