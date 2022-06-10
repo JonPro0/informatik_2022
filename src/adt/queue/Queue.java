@@ -3,7 +3,7 @@ package adt.queue;
 import adt.Item;
 
 public class Queue<T> {
-    public Item<T> first;
+    protected Item<T> first;
 
     public Queue() {
         first = null;

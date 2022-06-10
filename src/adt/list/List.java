@@ -7,7 +7,9 @@ import adt.queue.Queue;
 *
 * 1. insertAt(int index, T data) => Einfügen an bestimmter Stelle
 * 2. deleteAt(int index) => Löschen eines bestimmten Elements
-* 3. find(String Name) => Ein bestimmtes Objekt finden
+* 3. get(int index) => Gibt Daten an index zurück
+* 4. getItem(int index) => Gibt Element an index zurück
+* D.R.Y. Don't repeat yourself
 * */
 
 public class List<T> extends Queue<T>{
@@ -91,5 +93,20 @@ public class List<T> extends Queue<T>{
                 prev.setNext(null);
             }
         }
+    }
+
+    public int indexOf(T data){
+        if (isEmpty()){
+            throw new IllegalArgumentException("NEIN!");
+        }
+        int index = 0;
+        Item<T> runner = first;
+
+        while (runner.getData() != data){
+            runner = runner.getNext();
+            index++;
+        }
+
+        return index;
     }
 }
