@@ -1,5 +1,7 @@
 package adt.queue;
 
+import java.util.PriorityQueue;
+
 public class TestQueueInt {
     public static void main(String[] args) {
         QueueInt q = new QueueInt();

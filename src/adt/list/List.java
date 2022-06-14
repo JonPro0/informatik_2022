@@ -51,6 +51,14 @@ public class List<T> extends Queue<T>{
         runner.setData(data);
     }
 
+    public void move(int fromIndex, int toIndex){
+        checkIndex(fromIndex);
+        checkIndex(toIndex);
+        Item<T> tmp = getItem(fromIndex);
+        deleteAt(fromIndex);
+        insertAt(toIndex, tmp.getData());
+    }
+
     private void checkIndex(int index){
         if (isEmpty())
         if (index < 0) throw new IllegalArgumentException("Index must be positive");
@@ -102,11 +110,17 @@ public class List<T> extends Queue<T>{
         int index = 0;
         Item<T> runner = first;
 
-        while (runner.getData() != data){
+        while (runner.getData() != data && index < getSize()){
             runner = runner.getNext();
             index++;
         }
 
-        return index;
+        if (runner.getData() == data) return index;
+
+        return -1;
+    }
+
+    public void delete(T data) {
+        deleteAt(indexOf(data));
     }
 }

@@ -1,6 +1,6 @@
 package adt.list;
 
-public class TestList {
+public class TestTestList {
     public static void main(String[] args) {
         List<String> meineListe = new List<>();
         System.out.println(meineListe.get(0));
