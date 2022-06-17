@@ -16,12 +16,7 @@ public class List<T> extends Queue<T>{
     public T get(int index) {
         checkIndex(index);
 
-        Item<T> runner = first;
-        for (int i = 0; i < index; i++) {
-            runner = runner.getNext();
-        }
-
-        return runner.getData();
+        return getItem(index).getData();
     }
 
     private Item<T> getItem(int index) {
@@ -43,12 +38,7 @@ public class List<T> extends Queue<T>{
     }
 
     private void set(int index, T data) {
-        Item<T> runner = first;
-
-        for (int i = 0; i < index; i++) {
-            runner = runner.getNext();
-        }
-        runner.setData(data);
+        getItem(index).setData(data);
     }
 
     public void move(int fromIndex, int toIndex){
@@ -89,14 +79,9 @@ public class List<T> extends Queue<T>{
         if(index == 0){
             first = first.getNext();
         } else {
-            Item<T> runner = first;
-
-            for (int i = 0; i < index; i++) {
-                runner = runner.getNext();
-            }
             Item<T> prev = getItem(index - 1);
             if (index + 1 < getSize()) {
-                prev.setNext(runner.getNext());
+                prev.setNext(getItem(index).getNext());
             } else {
                 prev.setNext(null);
             }
